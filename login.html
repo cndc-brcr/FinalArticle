@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+            <img src="Images/Screenshot_20241218_115240.png" alt="Website Logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="active">Log In</a>
+    </nav>
+  </header>
+
+  <!-- Login Form -->
+  <section class="login-content">
+    <div class="form-container">
+      <h1>Log <span class="highlight">In</span></h1>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn-login">Log In</button>
+      </form>
+      <div id="loginMessage" style="color: blue; margin-top: 10px; display: none;">
+        Login Successful! You are now logged in.
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript to stay on the page and show message -->
+  <script>
+    function handleLogin(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      // Example validation (can be replaced with real validation logic)
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username && password) {
+        // Show success message and reset the form
+        document.getElementById("loginMessage").style.display = "block";
+        document.getElementById("loginForm").reset();
+      } else {
+        // You can display an error message if login is invalid
+        alert("Invalid username or password!");
+      }
+    }
+  </script>
+</body>
+</html>
